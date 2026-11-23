@@ -1,0 +1,12 @@
+{
+  "name": "Calculadora web Python",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Calculadora web",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postStartCommand": "bash -lc 'if ! curl --silent --fail http://127.0.0.1:8000/ >/dev/null; then nohup python3 servidor.py >/tmp/calculadora-servidor.log 2>&1 & fi'"
+}
